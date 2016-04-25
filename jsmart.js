@@ -22,7 +22,7 @@ jsmart.comdify=function(str)
  * @param  {Array} arr 参数字符串
  * @return {Araay}    
  */
- jsmart.Arrunique=function(arr) {
+ jsmart.arrUnique=function(arr) {
     var result = [], hash = {};
     for (var i = 0, elem; (elem = arr[i]) != null; i++) {
         if (!hash[elem]) {
