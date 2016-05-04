@@ -33,3 +33,24 @@ jsmart.comdify=function(str)
     return result;
 }
 
+/**
+ * 将字符串内的全角符号转换成半角符号 
+ * @param  {String} str 字符串
+ * @return {String}    
+ */
+// 全角符号转半角
+ jsmart.toSBC=function(str){
+    var result = "";
+    var len = str.length;
+    for(var i=0;i<len;i++)
+    {
+        var cCode = str.charCodeAt(i);
+        //全角与半角相差（除空格外）：65248（十进制）
+        cCode = (cCode>=0xFF01 && cCode<=0xFF5E)?(cCode - 65248) : cCode;
+        //处理空格
+        cCode = (cCode==0x03000)?0x0020:cCode;
+        result += String.fromCharCode(cCode);
+    }
+    return result;
+}
+
