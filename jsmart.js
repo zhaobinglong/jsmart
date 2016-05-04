@@ -2,8 +2,6 @@
 // 1.0.0
 var jsmart={};
 
-
-
 /**
  * 为字符串增加千分位
  * @param  {String} str 参数字符串
