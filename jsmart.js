@@ -1,6 +1,8 @@
 // jsmart lib;
 // 1.0.0
+
 var jsmart={};
+
 
 /**
  * 为字符串增加千分位
@@ -36,7 +38,6 @@ jsmart.comdify=function(str)
  * @param  {String} str 字符串
  * @return {String}    
  */
-// 全角符号转半角
  jsmart.toSBC=function(str){
     var result = "";
     var len = str.length;
@@ -51,4 +52,15 @@ jsmart.comdify=function(str)
     }
     return result;
 }
+
+/**
+ * 将字符串中的单词首字母转大写
+ * @param  {String} str 字符串
+ * @return {String}    
+ */
+ function titleCase(str) {
+     return str.replace(/\w\S*/g, function(word){ 
+             return word.charAt(0).toUpperCase()+word.substr(1).toLowerCase();
+     });
+ }
 
