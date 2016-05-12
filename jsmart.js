@@ -64,3 +64,18 @@ jsmart.comdify=function(str)
      });
  }
 
+/**
+ * 获取url字符串中传递的参数
+ * @param  {String} name 参数值
+ * @return {String}      [description]
+ */
+function getUrlParam(name) {
+
+   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+
+   var r = window.location.search.substr(1).match(reg);
+
+   if (r!=null) return unescape(r[2]); return null;
+
+}
+
