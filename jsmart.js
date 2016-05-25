@@ -78,4 +78,11 @@ function getUrlParam(name) {
    if (r!=null) return unescape(r[2]); return null;
 
 }
-
+/**
+ * 判断字符串是不是整数(从0开始的整数)
+ * @param  {String} name 参数值
+ * @return {bool}      
+ */
+function isInteger(str){
+   return /^\+?\d+$/.test(str);
+}
