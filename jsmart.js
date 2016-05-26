@@ -58,7 +58,7 @@ jsmart.comdify=function(str)
  * @param  {String} str 字符串
  * @return {String}    
  */
- function titleCase(str) {
+ jsmart.titleCase=function(str) {
      return str.replace(/\w\S*/g, function(word){ 
              return word.charAt(0).toUpperCase()+word.substr(1).toLowerCase();
      });
@@ -69,7 +69,7 @@ jsmart.comdify=function(str)
  * @param  {String} name 参数值
  * @return {String}      [description]
  */
-function getUrlParam(name) {
+ jsmart.getUrlParam=function(name) {
 
    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
 
@@ -83,6 +83,23 @@ function getUrlParam(name) {
  * @param  {String} name 参数值
  * @return {bool}      
  */
-function isInteger(str){
+ jsmart.isInteger=function(str){
    return /^\+?\d+$/.test(str);
 }
+
+/**
+ * 利用递归实现阶乘
+ * @param  {Number} num 一个整数
+ * @return {Number}      
+ */
+ jsmart.factorial=function (num) {
+    if (num < 0) {       
+        return -1;
+    } else if (num === 0 || num === 1) {      
+         return 1;
+    } else {        
+      return (num * factorial(num - 1));
+    }
+}
+
+
