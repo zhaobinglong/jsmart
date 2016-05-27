@@ -1,2 +1,2 @@
 # jsmart
-an light function libaray
+a lightweight function libaray for javascript
