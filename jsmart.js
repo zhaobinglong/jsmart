@@ -34,6 +34,22 @@ jsmart.comdify=function(str)
 }
 
 /**
+ * 数组元素随机排列
+ * @param  {Array} arr  等待排序的数组
+ * @return {[type]}     [description]
+ */
+jsmart.shuffle=function(arr){
+  var len = arr.length;
+  for(var i = 0; i < len - 1; i++){
+    var idx = Math.floor(Math.random() * (len - i));
+    var temp = arr[idx];
+    arr[idx] = arr[len - i - 1];
+    arr[len - i -1] = temp;
+  }
+  return arr;
+}
+
+/**
  * 将字符串内的全角符号转换成半角符号 
  * @param  {String} str 字符串
  * @return {String}    
