@@ -129,6 +129,43 @@ jsmart.coverString=function(subStr,str){
     }
 }
 
+/**
+ * 合并表格中相同内容的单元格
+ * @param {[type]} tableId  [description]
+ * @param {[type]} startRow [description]
+ * @param {[type]} endRow   [description]
+ * @param {[type]} col      [description]
+ */
+jsmart.MergeCell=function(tableId, startRow, endRow, col) {  
+    var tb = document.getElementById(tableId);  
+    if (col >= tb.rows[0].cells.length) {  
+        return;  
+    }  
+    //当检查第0列时检查所有行  
+    if (col == 0) {  
+        endRow = tb.rows.length - 1;  
+    }  
+    for (var i = startRow; i < endRow; i++) {  
+        //subCol:已经合并了多少列  
+        var subCol = tb.rows[0].cells.length - tb.rows[startRow].cells.length;  
+        //程序是自左向右合并，所以下一行一直取第0列  
+        if (tb.rows[startRow].cells[col - subCol].innerHTML == tb.rows[i + 1].cells[0].innerHTML) {  
+            //如果相同则删除下一行的第0列单元格  
+            tb.rows[i + 1].removeChild(tb.rows[i + 1].cells[0]);  
+            //更新rowSpan属性  
+            tb.rows[startRow].cells[col - subCol].rowSpan = (tb.rows[startRow].cells[col - subCol].rowSpan | 0) + 1;  
+            //当循环到终止行前一行并且起始行和终止行不相同时递归(因为上面的代码已经检查了i+1行，所以此处只到endRow-1)  
+            if (i == endRow - 1 && startRow != endRow) {  
+                MergeCell(tableId, startRow, endRow, col + 1);  
+            }  
+        } else {  
+            //起始行，终止行不变，检查下一列  
+            MergeCell(tableId, startRow, i, col + 1);  
+            //增加起始行  
+            startRow = i + 1;  
+        }  
+    }  
+}  
 
 
 
