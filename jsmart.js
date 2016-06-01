@@ -104,6 +104,17 @@ jsmart.shuffle=function(arr){
 }
 
 /**
+ * 利用正则判断字符串是否存在子串  不区分大小写
+ * @param  {String} subStr  子串
+ * @param  {String} str     父串
+ * @return {Bool}   
+ */
+jsmart.coverString=function(subStr,str){
+   var reg = eval("/"+subStr+"/ig");
+   return reg.test(str);
+}
+
+/**
  * 利用递归实现阶乘
  * @param  {Number} num 一个整数
  * @return {Number}      
@@ -117,5 +128,8 @@ jsmart.shuffle=function(arr){
       return (num * factorial(num - 1));
     }
 }
+
+
+
 
 
