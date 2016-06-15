@@ -167,6 +167,25 @@ jsmart.MergeCell=function(tableId, startRow, endRow, col) {
     }  
 }  
 
+/**
+ * 合并横向的单元格 空白的单元格和有内容的单元格合并  可以指定合并的列
+ */
+jsmart.MergeColCell=function(tableId,startCol,endCol){
+   
+
+}
+/**
+ * 判断一个对象是否为一个空对象
+ * @param  {object}  e 对象名
+ * @return {Boolean}   [description]
+ */
+jsmart.isEmptyObject=function(e){
+  var t;  
+  for (t in e)  
+      return !1;  
+  return !0  
+}
+
 
 
 
