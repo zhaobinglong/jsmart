@@ -169,9 +169,29 @@ jsmart.MergeCell=function(tableId, startRow, endRow, col) {
 
 /**
  * 合并横向的单元格 空白的单元格和有内容的单元格合并  可以指定合并的列
+ * @param {[type]} tableId   [description]
+ * @param {[type]} startRCol 开始合并的列
+ * @param {[type]} endCol    结束合并的列
+ * 
  */
 jsmart.MergeColCell=function(tableId,startCol,endCol){
-   
+   var trs=$('#'+tableId).find('tr');
+   for (var i = 0; i < trs.length; i++) {
+       var tr=trs.eq(i);
+       var tds=$(tr).find('td');
+       var tdCol=tds.eq(startCol);
+       var col=1;
+       for (var j = startCol; j <= endCol; j++) {
+           var td=tds.eq(j);
+           if(td.text()==''){
+              tdCol.attr('colspan',++col );
+              td.remove();
+           }else{
+              tdCol=tds.eq(j);
+              col=1;
+           }
+       }
+   }
 
 }
 /**
