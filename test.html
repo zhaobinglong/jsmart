@@ -5,22 +5,28 @@
 	<title>测试脚本</title>
 </head>
 <body>
-	
+	<input type="text" id='obj'>
 </body>
 <script type="text/javascript" src='jsmart.js'></script>
 <script type="text/javascript">
 
-var num='123';
+// var num='123';
 
-num=parseFloat(num);
+// num=parseFloat(num);
 
-if(isNaN(num)){
-	console.log('1');
-}else{
-	console.log('2');
+// if(isNaN(num)){
+// 	console.log('1');
+// }else{
+// 	console.log('2');
+// }
+
+// console.log(num.toFixed(1));
+// 
+var obj=document.getElementById('obj');
+
+obj.onkeyup=function(){
+  this.value=this.value.replace(/^(-|\+)?\d+ $/g,'');
 }
-
-console.log(num.toFixed(1));
 
 </script>
 </html>

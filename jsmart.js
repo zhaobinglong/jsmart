@@ -206,6 +206,14 @@ jsmart.isEmptyObject=function(e){
   return !0  
 }
 
+/**
+ * 返回顶部
+ * @return {[type]} [description]
+ */
+jsmart.backTop=function(){
+   window.scrollTo(0,0);
+}
+
 
 
 
