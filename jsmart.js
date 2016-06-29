@@ -215,5 +215,13 @@ jsmart.backTop=function(){
 }
 
 
+/**
+ *base64字符串转图片显示
+ */
+jsmart.showBase64img=function(type,imgString){
+   return 'data:image/'+type+';base64,'+imgString;
+}
+
+
 
 
