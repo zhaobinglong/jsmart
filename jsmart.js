@@ -216,8 +216,13 @@ jsmart.backTop=function(){
 
 
 /**
- *base64字符串转图片显示
+ * 显示base64编码的图片
+ * base64编码的作用是
+ * @pparam {type}       图片类型png/jpg/gif
+ * @pparam {imgString}  base64编码的字符串
+ * @return {string}     字符串，给img的src属性显示
  */
+
 jsmart.showBase64img=function(type,imgString){
    return 'data:image/'+type+';base64,'+imgString;
 }
