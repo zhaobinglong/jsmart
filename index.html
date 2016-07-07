@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度首页</title>
+	<style type="text/css">
+	    body{height: 1500px;}
+		#top{position: fixed;top: 0;left: 0;right: 0;height: 200px;background-color: #efefef}
+		.menu{position: absolute;top: 300px;left: 400px;
+			right: 400px;height: 500px;background-color: #ccc;}
+			#canvas{border: 1px solid red}
+	</style>
+</head>
+<body>
+
+
+<!-- 自定义扇形 -->
+<canvas id="canvas" width="300" height="300"></canvas>
+</body>
+<script type="text/javascript">
+
+/**
+ *  绘制扇形函数
+ * @param {[type]} id        canvas的id
+ * @param {[type]} x         圆心的x坐标
+ * @param {[type]} y         圆心的y坐标
+ * @param {[type]} radius    扇形半径
+ * @param {[type]} color     填充的颜色
+ * @param {[number]} eAngle    扇形结束的角度 0 - 360
+ *
+ */
+function test(id,x,y,radius,color,eAngle){
+	var canvas = document.getElementById(id);
+	var ctx = canvas.getContext('2d');
+	// 开始一条新路径
+	ctx.beginPath();
+	// 位移到圆心，方便绘制
+	ctx.translate(x, y);
+	// 移动到圆心
+	ctx.moveTo(0, 0);
+	// 绘制圆弧
+	ctx.arc(0, 0, radius, 0, Math.PI * (eAngle/180));
+	// 闭合路径
+	ctx.closePath();
+	// 填充颜色
+	ctx.fillStyle=color;
+	ctx.fill();
+}
+
+test("canvas",150,150,50,"red",100);
+
+</script>
+</html>
