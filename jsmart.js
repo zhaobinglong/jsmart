@@ -256,3 +256,14 @@ jsmart.sector=function(id,x,y,radius,color,eAngle){
 	ctx.fillStyle=color;
 	ctx.fill();
 }
+
+
+/**
+ * 统计字符串中每个字符出现的次数
+ * 参考 https://segmentfault.com/q/1010000005070166
+ * 
+ */
+
+ jsmart.sortNumber=function(str){
+   return str.split('').reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
+ }

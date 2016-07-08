@@ -14,40 +14,17 @@
 <body>
 
 
+
+<!-- test i will leave -->
 <!-- 自定义扇形 -->
 <canvas id="canvas" width="300" height="300"></canvas>
 </body>
 <script type="text/javascript">
 
-/**
- *  绘制扇形函数
- * @param {[type]} id        canvas的id
- * @param {[type]} x         圆心的x坐标
- * @param {[type]} y         圆心的y坐标
- * @param {[type]} radius    扇形半径
- * @param {[type]} color     填充的颜色
- * @param {[number]} eAngle    扇形结束的角度 0 - 360
- *
- */
-function test(id,x,y,radius,color,eAngle){
-	var canvas = document.getElementById(id);
-	var ctx = canvas.getContext('2d');
-	// 开始一条新路径
-	ctx.beginPath();
-	// 位移到圆心，方便绘制
-	ctx.translate(x, y);
-	// 移动到圆心
-	ctx.moveTo(0, 0);
-	// 绘制圆弧
-	ctx.arc(0, 0, radius, 0, Math.PI * (eAngle/180));
-	// 闭合路径
-	ctx.closePath();
-	// 填充颜色
-	ctx.fillStyle=color;
-	ctx.fill();
-}
+var arr = 'abcdaabc';
 
-test("canvas",150,150,50,"red",100);
+var info = arr.split('').reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
 
+console.log(info); //{ a: 3, b: 2, c: 2, d: 1 }
 </script>
 </html>
