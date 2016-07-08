@@ -4,7 +4,6 @@
 
 var jsmart={};
 
-
 /**
  * 为字符串增加千分位
  * @param  {String} str 参数字符串
@@ -261,9 +260,23 @@ jsmart.sector=function(id,x,y,radius,color,eAngle){
 /**
  * 统计字符串中每个字符出现的次数
  * 参考 https://segmentfault.com/q/1010000005070166
- * 
+ *
  */
 
  jsmart.sortNumber=function(str){
    return str.split('').reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
  }
+
+ /**
+  * 传递一个我文件名进来，获取文件后缀名
+  * @param  {String} str 参数字符串
+  * @return {String}
+  */
+jsmart.getExtensions=function(str){
+  if(typeof str != 'string'){
+      console.log('the function getExtensions() need a param of string type');
+      return false;
+  }else{
+     return str.substring(str.lastIndexOf('.')+1);
+  }
+}

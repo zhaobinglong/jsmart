@@ -21,10 +21,13 @@
 </body>
 <script type="text/javascript">
 
-var arr = 'abcdaabc';
-
-var info = arr.split('').reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
-
-console.log(info); //{ a: 3, b: 2, c: 2, d: 1 }
+function getExtensions(str){
+	 if(typeof str != 'string'){
+		   console.log('the function getExtensions() need a param of string type');
+			 return false;
+	 }else{
+		  return str.substring(str.lastIndexOf('.')+1);
+	 }
+}
 </script>
 </html>
