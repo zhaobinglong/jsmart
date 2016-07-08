@@ -1,13 +1,13 @@
-var gulp = require('gulp'),
-  rename = require('gulp-rename'),
-  uglify = require("gulp-uglify");
+var gulp = require('gulp');
+var rename = require('gulp-rename');
+var uglify = require("gulp-uglify");
 
 
 gulp.task('watch', function () {
   gulp.src('jsmart.js')
-  .pipe(uglify()) //压缩
-  .pipe(rename('jsmart.min.js'))
-  .pipe(gulp.dest('dist'));
+      .pipe(uglify()) //压缩
+      .pipe(rename('jsmart.min.js'))
+      .pipe(gulp.dest('dist'));
 });
 
 
@@ -17,4 +17,4 @@ gulp.task('default', function(){
     gulp.watch('*.js', function(){
         gulp.run('watch');
     });
-}); 
+});

@@ -9,25 +9,37 @@
 		.menu{position: absolute;top: 300px;left: 400px;
 			right: 400px;height: 500px;background-color: #ccc;}
 			#canvas{border: 1px solid red}
+			#one{
+				width:100px;
+				height:100px;
+			}
 	</style>
 </head>
 <body>
 
 
-
+<div id='one'></div>
 <!-- test i will leave -->
 <!-- 自定义扇形 -->
-<canvas id="canvas" width="300" height="300"></canvas>
+
 </body>
 <script type="text/javascript">
 
-function getExtensions(str){
-	 if(typeof str != 'string'){
-		   console.log('the function getExtensions() need a param of string type');
-			 return false;
-	 }else{
-		  return str.substring(str.lastIndexOf('.')+1);
-	 }
+
+
+function numberAnimation(id,time,num){
+    var obj=document.getElementById(id);
+    obj.innerHTML=num;
+		var flag=0;
+		var timer=setInterval(function(){
+      if(flag>=time){
+				 clearInterval(timer);
+			}else{
+				 obj.innerHTML=flag;
+				 flag++;
+			}
+		},1);
 }
+numberAnimation('one',1000,4000);
 </script>
 </html>

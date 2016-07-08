@@ -280,3 +280,28 @@ jsmart.getExtensions=function(str){
      return str.substring(str.lastIndexOf('.')+1);
   }
 }
+
+/**
+ * 检查手机的摇动
+ */
+
+ /**
+  * 数字   渐进动画
+  * @param  {String} id    参数字符串
+  * @param {Number} time   渐进的时间
+  * @param {Number} num    最终呈现的数字
+  */
+  
+jsmart.numberAnimation=function(id,time,num){
+      var obj=document.getElementById(id);
+      obj.innerHTML=num;
+  		var flag=0;
+  		var timer=setInterval(function(){
+        if(flag>=time){
+  				 clearInterval(timer);
+  			}else{
+  				 obj.innerHTML=flag;
+  				 flag++;
+  			}
+  		},1);
+}
