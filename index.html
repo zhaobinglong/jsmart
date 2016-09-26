@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>百度首页</title>
+	<title>测试脚本</title>
 	<style type="text/css">
 	    body{height: 1500px;}
 		#top{position: fixed;top: 0;left: 0;right: 0;height: 200px;background-color: #efefef}
@@ -17,6 +17,7 @@
 </head>
 <body>
 
+<a href="http://baidu.com" onclick='test()'>快点我</a>
 
 <div id='one'></div>
 <!-- test i will leave -->
@@ -25,21 +26,9 @@
 </body>
 <script type="text/javascript">
 
+   document.body.onscroll=function(){
+		  console.log(1);
+	 }
 
-
-function numberAnimation(id,time,num){
-    var obj=document.getElementById(id);
-    obj.innerHTML=num;
-		var flag=0;
-		var timer=setInterval(function(){
-      if(flag>=time){
-				 clearInterval(timer);
-			}else{
-				 obj.innerHTML=flag;
-				 flag++;
-			}
-		},1);
-}
-numberAnimation('one',1000,4000);
 </script>
 </html>

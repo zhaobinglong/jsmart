@@ -291,7 +291,7 @@ jsmart.getExtensions=function(str){
   * @param {Number} time   渐进的时间
   * @param {Number} num    最终呈现的数字
   */
-  
+
 jsmart.numberAnimation=function(id,time,num){
       var obj=document.getElementById(id);
       obj.innerHTML=num;
@@ -304,4 +304,63 @@ jsmart.numberAnimation=function(id,time,num){
   				 flag++;
   			}
   		},1);
+}
+
+/**
+ * js截取字符串，中英文都能用,超过长度的字符串用...代替
+ * @param str：需要截取的字符串
+ * @param len: 需要截取的长度
+ */
+jsmart.cutstr=function(str, len) {
+    var str_length = 0;
+    var str_len = 0;
+    str_cut = new String();
+    str_len = str.length;
+    for (var i = 0; i < str_len; i++) {
+        a = str.charAt(i);
+        str_length++;
+        if (escape(a).length > 4) {
+            //中文字符的长度经编码之后大于4
+            str_length++;
+        }
+        str_cut = str_cut.concat(a);
+        if (str_length >= len) {
+            str_cut = str_cut.concat("...");
+            return str_cut;
+        }
+    }
+    //如果给定字符串小于指定长度，则返回源字符串；
+    if (str_length < len) {
+        return str;
+    }
+}
+
+
+/**
+ * 判断滚动条滚动方向
+ *
+ */
+ jsmart.scrollDirection=function(){
+
+ }
+
+ /**
+  * 获取本年度指定月份的周数
+  */
+
+jsmart.getWeeks=function(m){
+
+    var str=new Date('2016-'+m+'-1');
+    // 当前年份
+    var year=str.getFullYear();
+    //  获取月份第一天是周几  周日是0
+    var day=str.getDay();
+    // 获取当前月份的天数
+    var days=new Date(year,m,0).getDate();
+    // 要减去开头的这几天
+    var first=0;
+    day==0? first=1 : first=8-day;
+    days = days-first;
+    return 1+ Math.ceil(days/7);
+
 }
