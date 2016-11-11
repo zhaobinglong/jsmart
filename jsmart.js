@@ -260,12 +260,11 @@ jsmart.sector=function(id,x,y,radius,color,eAngle){
 }
 
 /**
+* 设置光标位置函数
 * @param textDom  input对象 使用document.getElementById的方式获取
 * @param pos      光标插入的位置
-
  */
 jsmart.setCaretPosition=function(textDom, pos){
-     console.log(textDom+'--'+pos);
      if(textDom.setSelectionRange){
          // IE Support
          textDom.focus();
@@ -278,4 +277,31 @@ jsmart.setCaretPosition=function(textDom, pos){
          range.moveStart('character', pos);
          range.select();
      }
+ }
+
+/**
+* 文件上传函数
+* @param inputId  dom结构中的input节点
+* @param pos      文件上传的url
+ */
+ jsmart.uploadAction=function(inputId,url){
+   var fileObj = document.getElementById(inputId).files[0];
+   var form = new FormData();
+   form.append("userfile", fileObj);
+   var xhr = new XMLHttpRequest();
+   xhr.withCredentials = true;
+   xhr.open("post", url, true);
+   xhr.onload = function () {
+        var ret = JSON.parse(xhr.responseText);
+        alert(ret.data);
+       //  scope.loadBox=!$scope.loadBox;
+       $("#spinner").addClass('dn');
+
+   };
+   xhr.onerror = function(){
+       $("#spinner").addClass('dn');
+       alert('上传失败')
+   };
+
+   xhr.send(form);
  }
