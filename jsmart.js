@@ -4,6 +4,8 @@
 
 var jsmart={};
 
+// 如何开启调试模式和关闭
+
 
 /**
  * 为字符串增加千分位
@@ -256,3 +258,24 @@ jsmart.sector=function(id,x,y,radius,color,eAngle){
 	ctx.fillStyle=color;
 	ctx.fill();
 }
+
+/**
+* @param textDom  input对象 使用document.getElementById的方式获取
+* @param pos      光标插入的位置
+
+ */
+jsmart.setCaretPosition=function(textDom, pos){
+     console.log(textDom+'--'+pos);
+     if(textDom.setSelectionRange){
+         // IE Support
+         textDom.focus();
+         textDom.setSelectionRange(pos, pos);
+     }else if (textDom.createTextRange) {
+         // Firefox support
+         var range = textDom.createTextRange();
+         range.collapse(true);
+         range.moveEnd('character', pos);
+         range.moveStart('character', pos);
+         range.select();
+     }
+ }
