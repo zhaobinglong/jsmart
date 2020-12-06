@@ -348,6 +348,56 @@ class JSMart {
         days = days-first;
         return 1+ Math.ceil(days/7);
     }
+
+    /**
+     * 
+     * 传递进入带有时区人日期字符串
+     * 例如：2020-12-04T07:20:44.116Z
+     * @return {String} 2020-11-23
+     */
+    formatDate(str) {
+        let dateStr = new Date(str).toLocaleDateString().replace(/\//g,"-")
+        let dateArr = dateStr.split('-')
+        dateArr = dateArr.map(item => {
+        return item.length <=1 ? '0' + item : item
+        })
+        return dateArr.join('-')
+    }
+    /**
+     *
+     * 将json对象转化为url后跟着的字符串
+     * @param {*} param
+     * @return {*} 
+     * @memberof JSMart
+     */
+    toParams(param) {
+        let result = ''
+        for (let name in param) {
+          if (typeof param[name] !== 'function') {
+            result += '&' + name + '=' + (param[name])
+          }
+        }
+        return result.substring(1)
+    }
+    /**
+     *
+     * 获取当前日期，格式为YYYY-MM-DD
+     * @return {*} 
+     * @memberof JSMart
+     */
+    getNowDate() {
+        var dd = new Date();
+        var y = dd.getFullYear();
+        var m = dd.getMonth() + 1; 
+        if(m<10){
+          m='0'+m
+        }
+        var d = dd.getDate();
+        if(d<10){
+          d='0'+d
+        }
+        return y+"-"+m+"-"+d;
+      }
 }
 
 export default new JSMart()
